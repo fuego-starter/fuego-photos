@@ -1,0 +1,11 @@
+{
+  "name": "fuego-photos",
+  "description": "Back end handler for user auth and photo uploading to S3",
+  "repository": "https://github.com/fuego-starter/fuego-photos.git",
+  "author": "",
+  "license": "Unlicense",
+  "private": true,
+  "scripts": {
+    "start": "node hello_world.ts"
+  }
+}
