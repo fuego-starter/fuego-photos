@@ -1,0 +1,17 @@
+{
+  "name": "fuego-photos",
+  "description": "Back end handler for user auth and photo uploading to S3",
+  "repository": "https://github.com/fuego-starter/fuego-photos.git",
+  "author": "",
+  "license": "Unlicense",
+  "private": true,
+  "scripts": {
+    "start": "node src/hello_world.js",
+    "build:all": "./node_modules/.bin/tsc src/*.ts",
+    "build:start": "yarn build:all && yarn start"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.96",
+    "typescript": "^2.6.2"
+  }
+}
