@@ -6,11 +6,12 @@
   "license": "Unlicense",
   "private": true,
   "scripts": {
-    "start": "node src/hello_world.js",
-    "build:all": "./node_modules/.bin/tsc src/*.ts",
-    "build:start": "yarn build:all && yarn start"
+    "start:local": "serverless invoke local --function helloWorld",
+    "build:all": "./node_modules/.bin/tsc src/**/*.ts",
+    "build:start": "yarn build:all && yarn start:local"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^0.0.27",
     "@types/node": "^6.0.96",
     "typescript": "^2.6.2"
   }
