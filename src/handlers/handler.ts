@@ -11,3 +11,15 @@ export const helloWorld: Handler = (event: APIGatewayEvent, context: Context, ca
 
   callback(null, response);
 }
+
+export const helloUser: Handler = (event: APIGatewayEvent, context: Context, callback: Callback) => {
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: `Hello #{event.name}!`,
+      input: event,
+    }),
+  };
+
+  callback(null, response);
+}
