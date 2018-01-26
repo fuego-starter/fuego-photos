@@ -22,8 +22,8 @@ functions:
           path: hello-world
           method: get
           cors: true
-  helloName:
-    handler: src/handlers/handler.helloName
+  helloUser:
+    handler: src/handlers/handler.helloUser
     events:
       - http:
           path: hello-user
