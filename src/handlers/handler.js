@@ -11,10 +11,11 @@ exports.helloWorld = function (event, context, callback) {
     callback(null, response);
 };
 exports.helloUser = function (event, context, callback) {
+    var body = JSON.parse(event.body);
     var response = {
         statusCode: 200,
         body: JSON.stringify({
-            message: "Hello " + event.name + "!",
+            message: "Hello " + body.name + "!",
             input: event
         })
     };
