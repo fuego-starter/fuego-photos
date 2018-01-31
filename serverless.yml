@@ -22,3 +22,10 @@ functions:
           path: hello-world
           method: get
           cors: true
+  helloUser:
+    handler: src/handlers/handler.helloUser
+    events:
+      - http:
+          path: hello-user
+          method: post
+          cors: true
