@@ -12,6 +12,10 @@ provider:
   name: aws
   runtime: nodejs6.10
 
+# Additional plugins for extended serverless functionality
+plugins:
+  - serverless-offline
+
 # The `functions` block defines what code to deploy
 functions:
   helloWorld:
