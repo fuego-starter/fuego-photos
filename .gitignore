@@ -3,3 +3,6 @@ node_modules
 jspm_packages
 .serverless
 yarn-error.log
+*.spec.js
+src/**/*.js
+stubs/**/*.js
