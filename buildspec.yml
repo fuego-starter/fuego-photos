@@ -10,16 +10,14 @@ phases:
       - sudo apt-get update && sudo apt-get install yarn
   pre_build:
     commands:
-      - yarn install
+      - yarn install --ignore-optional
   build:
     commands:
       - yarn build:all
       - ./node_modules/mocha/bin/mocha -r ts-node/register test/**/*.spec.ts
-artifacts:
-  files:
-    - 'handler.js'
-  discard-paths: yes
-  base-directory: src/handlers
+  post_build:
+    commands:
+      - bash lib/scripts/deploy.sh
 cache:
   paths:
     - '/root/.npm/**/*'

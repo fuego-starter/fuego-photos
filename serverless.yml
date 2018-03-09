@@ -12,7 +12,6 @@ provider:
   name: aws
   runtime: nodejs6.10
   region: us-west-1
-
 # Additional plugins for extended serverless functionality
 plugins:
   - serverless-offline
