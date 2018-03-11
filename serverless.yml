@@ -33,3 +33,9 @@ functions:
           path: hello-user
           method: post
           cors: true
+  provisionUserDataStorage:
+    handler: src/handlers/handler.provisionUserDataStorage
+    events:
+     -  cognitoUserPool:
+          pool: FuegoPhotosUserPool
+          trigger: PostConfirmation
