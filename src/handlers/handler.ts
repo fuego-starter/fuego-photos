@@ -29,7 +29,10 @@ export const helloUser: ProxyHandler = (event: APIGatewayEvent, context: Context
 }
 
 export const provisionUserDataStorage: ProxyHandler = (event: CognitoUserPoolEvent, context: Context, callback: ProxyCallback) => {
-  // Verify user in pool, then setup storage on s3
+  // Ensure that correct lambda trigger was used PostConfirmation
+  // Verify user in pool via username
+  // Setup storage on s3
+  
   let response: ProxyResult; // Needs setup and assignment
   callback(null, response);
 }
