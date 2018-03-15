@@ -1,5 +1,5 @@
 import { APIGatewayEvent,CognitoUserPoolEvent, ProxyCallback} from 'aws-lambda'
-import { Context, ProxyHandler, ProxyResult } from 'aws-lambda';
+import { Context, ProxyHandler, Handler, ProxyResult, Callback } from 'aws-lambda';
 import S3 from "aws-sdk/clients/s3";
 
 
@@ -28,7 +28,7 @@ export const helloUser: ProxyHandler = (event: APIGatewayEvent, context: Context
   callback(null, response);
 }
 
-export const provisionUserDataStorage: ProxyHandler = (event: CognitoUserPoolEvent, context: Context, callback: ProxyCallback) => {
+export const provisionUserDataStorage: Handler = (event: CognitoUserPoolEvent, context: Context, callback: Callback) => {
   // Ensure that correct lambda trigger was used PostConfirmation
   // Verify user in pool via username
   // Setup storage on s3
