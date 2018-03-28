@@ -1,6 +1,6 @@
 import 'mocha';
 import { helloWorld, helloUser } from '../src/handlers/handler';
-import { StubEvent, StubContext } from '../stubs/hello';
+import { StubEvent, StubContext } from './stubs/hello';
 import * as expect from "expect.js";
 
 describe('helloWorld', function () {
