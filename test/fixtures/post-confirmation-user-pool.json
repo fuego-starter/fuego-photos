@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "triggerSource": "PostConfirmation_ConfirmSignUp",
+  "region": "us-west-1",
+  "userPoolId": "1",
+  "userName": "test",
+  "callerContext": {
+      "awsSdk": "2.75.0",
+      "clientId": "777"
+  },
+  "request": {
+    "userAttributes" : {}
+  },
+  "response": {}
+}

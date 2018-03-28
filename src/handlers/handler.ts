@@ -33,6 +33,6 @@ export const provisionUserDataStorage: Handler = (event: CognitoUserPoolEvent, c
   // Verify user in pool via username
   // Setup storage on s3
 
-  let response: ProxyResult; // Needs setup and assignment
-  callback(null, response);
+
+  callback(null, event);
 }
