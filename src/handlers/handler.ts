@@ -33,6 +33,5 @@ export const provisionUserDataStorage: Handler = (event: CognitoUserPoolEvent, c
   // Verify user in pool via username
   // Setup storage on s3
 
-
   callback(null, event);
 }
