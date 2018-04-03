@@ -5,7 +5,6 @@
     "module": "commonjs",
     "rootDir": "./",
     "strict": true,
-    "lib": ["dom" , "es2015.promise"],
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitThis": true,

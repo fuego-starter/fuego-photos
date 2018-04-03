@@ -10,7 +10,11 @@ service: hello-world
 # The `provider` block defines where your service will be deployed
 provider:
   name: aws
+<<<<<<< HEAD
   runtime: nodejs8.10
+=======
+  runtime: nodejs6.10
+>>>>>>> fix issue with user storage test and uncompiled source files.
   region: us-west-2
 # Additional plugins for extended serverless functionality
 plugins:
@@ -36,6 +40,6 @@ functions:
   provisionUserDataStorage:
     handler: src/handlers/handler.provisionUserDataStorage
     events:
-     -  cognitoUserPool:
+      - cognitoUserPool:
           pool: FuegoPhotosUserPool
           trigger: PostConfirmation
