@@ -3,7 +3,6 @@ import { provisionUserDataStorage } from '../src/handlers/handler';
 import { expect } from "chai";
 import * as sinon from 'sinon';
 import * as fs from 'fs';
-import { FileStorage } from './support/AWS-wrapper';
 import { StubContext, StubEvent } from './stubs/hello';
 import { CognitoUserPoolEvent, Callback, APIGatewayEvent } from 'aws-lambda';
 
