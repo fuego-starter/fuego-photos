@@ -5,9 +5,13 @@ export class FileStorage {
   _S3: S3;
   email: string;
   constructor(email: string) {
-    this._S3 = s3Factory.getS3Instance();
+    this._S3 = s3Factory.getS3Instance('development', email);
     this.email = email;
   }
-  
+
   get S3() { return this._S3; }
+
+  upload() {
+    this.S3.putObject()
+  }
 }
