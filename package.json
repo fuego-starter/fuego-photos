@@ -16,7 +16,11 @@
     "@types/chai": "^4.1.2",
     "@types/expect.js": "^0.3.29",
     "@types/mocha": "^2.2.47",
+<<<<<<< HEAD
     "@types/node": "8.10",
+=======
+    "@types/node": "^6.0.96",
+>>>>>>> 0cc6cbe93bc2b5e554f9fdd3e5752e300946a67b
     "@types/sinon": "^4.3.0",
     "chai": "^4.1.2",
     "expect.js": "^0.3.1",
