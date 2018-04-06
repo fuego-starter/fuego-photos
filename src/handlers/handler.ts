@@ -1,6 +1,8 @@
 import { APIGatewayEvent, CognitoUserPoolEvent, ProxyCallback} from 'aws-lambda'
 import { Context, ProxyHandler, Handler, ProxyResult, Callback } from 'aws-lambda';
-import { S3 } from "aws-sdk";
+import * as AWS from "aws-sdk";
+import { FileStorage } from '../../test/support/AWS-wrapper';
+
 
 export const helloWorld: ProxyHandler = (event: APIGatewayEvent, context: Context, callback: ProxyCallback) => {
   const response: ProxyResult = {
@@ -28,5 +30,9 @@ export const helloUser: ProxyHandler = (event: APIGatewayEvent, context: Context
 }
 
 export const provisionUserDataStorage: Handler = (event: CognitoUserPoolEvent, context: Context, callback: Callback) => {
+  AWS.config.update({region: 'us-west-1'});
+  let s3Storage = new FileStorage;
+  const params = { Bucket: 'fuego-photos-users', Key: `${event.userName}/` };
+  s3Storage.S3.putObject();
   callback(null, event);
 }
