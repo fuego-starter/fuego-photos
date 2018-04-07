@@ -1,7 +1,7 @@
 import { APIGatewayEvent, CognitoUserPoolEvent, ProxyCallback} from 'aws-lambda'
 import { Context, ProxyHandler, Handler, ProxyResult, Callback } from 'aws-lambda';
 import * as AWS from "aws-sdk";
-import { FileStorage } from '../lib/AWS-wrapper';
+import { FileStorage } from '../lib/file-storage';
 
 
 export const helloWorld: ProxyHandler = (event: APIGatewayEvent, context: Context, callback: ProxyCallback) => {

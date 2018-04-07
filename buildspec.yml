@@ -10,6 +10,7 @@ phases:
       - sudo apt-get update && sudo apt-get install yarn
   pre_build:
     commands:
+      - bash lib/scripts/environment.sh
       - yarn install --ignore-optional
   build:
     commands:

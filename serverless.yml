@@ -10,14 +10,7 @@ service: hello-world
 # The `provider` block defines where your service will be deployed
 provider:
   name: aws
-<<<<<<< HEAD
   runtime: nodejs8.10
-=======
-  runtime: nodejs6.10
-<<<<<<< HEAD
->>>>>>> fix issue with user storage test and uncompiled source files.
-=======
->>>>>>> 0cc6cbe93bc2b5e554f9fdd3e5752e300946a67b
   region: us-west-2
 # Additional plugins for extended serverless functionality
 plugins:
