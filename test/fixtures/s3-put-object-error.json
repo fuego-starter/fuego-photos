@@ -1,0 +1,11 @@
+{ "NoSuchBucket": "Call stack here",
+  "message": "The specified bucket does not exist",
+  "code": "NoSuchBucket",
+  "region": "us-west-1",
+  "time": "2018-04-10T22:53:08.584Z",
+  "requestId": "597524CFB98E7EA6",
+  "extendedRequestId": "ZkTT8iGy96wiQUbkhJk85KI+FftrhScOCfDQFyZfokX+PwZVDdQyLy9mtrLX6IMmKSc0ma0NLZQ=",
+  "statusCode": 404,
+  "retryable": false,
+  "retryDelay": 34.99545986158288 
+}
