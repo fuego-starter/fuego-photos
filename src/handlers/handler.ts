@@ -33,6 +33,14 @@ export const provisionUserDataStorage: Handler = (event: CognitoUserPoolEvent, c
   AWS.config.update({region: 'us-west-1'});
   let fileStorage = new FileStorage();
   const params = { Bucket: 'fuego-photos-users', Key: `${event.userName}/` };
-  fileStorage.S3.putObject(params);
-  callback(null, event);
+  fileStorage.S3.putObject(params, (err, data) => {
+    if (err) {
+      console.log(err, err.stack);
+      callback(err, event);
+    } else {
+      console.log(data);
+      callback(null, event);
+    }
+  });
+
 }
