@@ -8,6 +8,7 @@ export interface StubContext extends Context {
 export interface StubEvent extends APIGatewayEvent {};
 
 export class StubContext {
+  config: object;
   constructor(fName: string) {
     this.logGroupName = `/aws/lambda/hello-world-dev-${fName}`;
     this.functionName = `hello-world-dev-${fName}`;

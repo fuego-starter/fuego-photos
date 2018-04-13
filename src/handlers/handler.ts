@@ -31,16 +31,15 @@ export const helloUser: ProxyHandler = (event: APIGatewayEvent, context: Context
 
 export const provisionUserDataStorage: Handler = (event: CognitoUserPoolEvent, context: Context, callback: Callback) => {
   AWS.config.update({region: 'us-west-1'});
-  let fileStorage = new FileStorage();
-  const params = { Bucket: 'fuego-photos-users', Key: `${event.userName}/` };
+  let fileStorage = new FileStorage(context.config);
+  const params = { Bucket: 'fuego-users', Key: `${event.userName}/` };
   fileStorage.S3.putObject(params, (err, data) => {
     if (err) {
       console.log(err, err.stack);
-      callback(err, event);
+      callback(err, data);
     } else {
       console.log(data);
-      callback(null, event);
+      callback(null, data);
     }
   });
-
 }
