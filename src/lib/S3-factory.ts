@@ -7,6 +7,7 @@ import { IStubContext } from '../../test/stubs/hello';
 export default class s3Factory {
   public static getS3Instance(config: Context | IStubContext) {
     let s3Object = new S3();
+    // Stub out various methods and callback arguments in test environment
     if ((config as IStubContext).environment.toLowerCase() == 'test') {
       let sinon = require('sinon');
       let putObjectStub = sinon.stub(s3Object, 'putObject');

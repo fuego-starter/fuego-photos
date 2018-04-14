@@ -36,13 +36,16 @@ export const provisionUserDataStorage: Handler = (event: CognitoUserPoolEvent, c
   }
 
   AWS.config.update({region: 'us-west-1'});
+  // Pass in context for different results based on the development environment
   let fileStorage = new FileStorage(context);
-  const params = { Bucket: 'fuego-users', Key: `${event.userName}/` };
+  const params = { Bucket: 'fuego-photos-users', Key: `${event.userName}/` };
   fileStorage.S3.putObject(params, (err, data) => {
     if (err) {
+      // If an error occurred, log it and return it as a response
       console.log(err, err.stack);
       callback(err, data);
     } else {
+      // If the folder was created successfully, log and return the response data
       console.log(data);
       callback(null, data);
     }
