@@ -1,14 +1,7 @@
-import { APIGatewayEvent, Context } from 'aws-lambda';
-
-export interface IStubContext extends Context {
-  isDefaultFunctionVersion: boolean;
-  invokeid: string;
-  environment: string; 
-  testType: string;
-};
-
-export interface IStubEvent extends APIGatewayEvent {};
-
+"use strict";
+exports.__esModule = true;
+;
+;
 // export class StubContext implements IStubContext {
 //   logGroupName: string;
 //   functionName: string;
@@ -20,8 +13,6 @@ export interface IStubEvent extends APIGatewayEvent {};
 //   isDefaultFunctionVersion: boolean;
 //   memoryLimitInMB: number;
 //   config: object;
-
-
 //   constructor(fName: string) {
 //     this.logGroupName = `/aws/lambda/hello-world-dev-${fName}`;
 //     this.functionName = `hello-world-dev-${fName}`;
@@ -35,7 +26,6 @@ export interface IStubEvent extends APIGatewayEvent {};
 //     this.config = { environment: 'test', test: {} }
 //   }
 // }
-
 // export class StubEvent {
 //   constructor(data: string | null) {
 //     this.body = data;

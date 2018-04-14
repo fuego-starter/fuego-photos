@@ -17,7 +17,7 @@ export const helloWorld: ProxyHandler = (event: APIGatewayEvent, context: Contex
 }
 
 export const helloUser: ProxyHandler = (event: APIGatewayEvent, context: Context, callback: ProxyCallback) => {
-  let body = JSON.parse(event.body);
+  let body = JSON.parse(event.body || '');
   const response: ProxyResult = {
     statusCode: 200,
     body: JSON.stringify({
@@ -31,7 +31,7 @@ export const helloUser: ProxyHandler = (event: APIGatewayEvent, context: Context
 
 export const provisionUserDataStorage: Handler = (event: CognitoUserPoolEvent, context: Context, callback: Callback) => {
   AWS.config.update({region: 'us-west-1'});
-  let fileStorage = new FileStorage(context.config);
+  let fileStorage = new FileStorage(context);
   const params = { Bucket: 'fuego-users', Key: `${event.userName}/` };
   fileStorage.S3.putObject(params, (err, data) => {
     if (err) {
