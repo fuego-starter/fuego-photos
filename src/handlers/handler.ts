@@ -30,6 +30,11 @@ export const helloUser: ProxyHandler = (event: APIGatewayEvent, context: Context
 }
 
 export const provisionUserDataStorage: Handler = (event: CognitoUserPoolEvent, context: Context, callback: Callback) => {
+  if (event.triggerSource !== 'PostConfirmation_ConfirmSignUp') {
+    callback(Error('Invalid trigger source.'));
+    return undefined; 
+  }
+
   AWS.config.update({region: 'us-west-1'});
   let fileStorage = new FileStorage(context);
   const params = { Bucket: 'fuego-users', Key: `${event.userName}/` };

@@ -13,11 +13,21 @@ describe('provisionUserDataStorage', function() {
   let context: IStubContext = {environment: 'test'} as IStubContext;
   let event: CognitoUserPoolEvent;
 
-  it("it returns valid data when a user folder is created", async function() {
-    let event = fs.readFileSync('./test/fixtures/post-confirmation-user-pool.json', 'utf8');
-    let eventData = JSON.parse(event) as CognitoUserPoolEvent;
+  beforeEach(() => {
+    let eventString = fs.readFileSync('./test/fixtures/post-confirmation-user-pool.json', 'utf8');
+    event = JSON.parse(eventString) as CognitoUserPoolEvent;
+  });
+
+  it("returns an error if triggered incorrectly", function() {
+    event.triggerSource = 'PreSignUp_SignUp';
+
+    provisionUserDataStorage(event, context, function(err, data) {
+      expect(err.message).to.eql('Invalid trigger source.');
+    });
+  });  
+
+  it("returns valid data when a user folder is created", function() {
     context.testType = 'success';
-    let params = { Bucket: 'fuego-photos-users', Key: `${eventData.userName}/` }
 
     provisionUserDataStorage(event, context, function(err, data) {
       expect(!!err).to.be.false;
@@ -26,11 +36,8 @@ describe('provisionUserDataStorage', function() {
 
   });
 
-  it("it returns an error when a user folder can't be created.", function() {
-    let event = fs.readFileSync('./test/fixtures/post-confirmation-user-pool.json', 'utf8'); 
-    let eventData = JSON.parse(event) as CognitoUserPoolEvent;
+  it("returns an error when a user folder can't be created.", function() {
     context.testType = 'fail';
-    let params = { Bucket: 'fuego-photos-users', Key: `${eventData.userName}/` }
 
     provisionUserDataStorage(event, context, function(err, data) {
       expect(!!data).to.be.false;
