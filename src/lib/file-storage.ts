@@ -1,6 +1,6 @@
 import {S3} from 'aws-sdk';
 import { Context } from 'aws-lambda'
-import { IStubContext } from '../../test/stubs/hello'
+import { IStubContext } from '../../test/stubs/handler'
 import s3Factory  from './S3-factory'; 
 
 export class FileStorage {

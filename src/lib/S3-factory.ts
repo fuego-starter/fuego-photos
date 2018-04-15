@@ -2,7 +2,7 @@ import { S3 } from 'aws-sdk';
 import { Context } from 'aws-lambda';
 // import { StubContext } from '../../test/stubs/hello'
 import * as fs from 'fs';
-import { IStubContext } from '../../test/stubs/hello';
+import { IStubContext } from '../../test/stubs/handler';
 
 export default class s3Factory {
   public static getS3Instance(config: Context | IStubContext) {

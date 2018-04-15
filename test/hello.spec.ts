@@ -1,7 +1,7 @@
 import 'mocha';
 import { helloWorld, helloUser } from '../src/handlers/handler';
-import { IStubEvent, IStubContext } from './stubs/hello';
-import * as expect from "expect.js";
+import { IStubEvent, IStubContext } from './stubs/handler';
+import { expect, assert } from "chai";
 
 describe('helloWorld', function () {
   let event: IStubEvent;

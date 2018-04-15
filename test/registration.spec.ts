@@ -3,7 +3,7 @@ import { provisionUserDataStorage } from '../src/handlers/handler';
 import { expect, assert } from "chai";
 import * as sinon from 'sinon';
 import * as fs from 'fs';
-import { IStubContext } from './stubs/hello';
+import { IStubContext } from './stubs/handler';
 import { Context, CognitoUserPoolEvent, Callback, APIGatewayEvent } from 'aws-lambda';
 
 

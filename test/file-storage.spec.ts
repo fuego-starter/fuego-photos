@@ -2,7 +2,7 @@ import 'mocha';
 import { expect } from "chai";
 import * as sinon from 'sinon';
 import { FileStorage } from '../src/lib/file-storage';
-import {IStubContext} from './stubs/hello';
+import {IStubContext} from './stubs/handler';
 
 describe('creating a user folder on s3', function() {
   it('creates an object on s3 given a set of parameters', function() {
