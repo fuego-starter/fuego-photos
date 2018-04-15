@@ -4,7 +4,7 @@ import * as AWS from "aws-sdk";
 import { FileStorage } from '../lib/file-storage';
 
 
-export const helloWorld: ProxyHandler = (event: APIGatewayEvent, context: Context, callback: ProxyCallback) => {
+export const helloWorld: ProxyHandler = (event: APIGatewayEvent, context: Context, callback: ProxyCallback | undefined) => {
   const response: ProxyResult = {
     statusCode: 200,
     body: JSON.stringify({
@@ -13,10 +13,10 @@ export const helloWorld: ProxyHandler = (event: APIGatewayEvent, context: Contex
     }),
   };
 
-  callback(null, response);
+  callback!(null, response);
 }
 
-export const helloUser: ProxyHandler = (event: APIGatewayEvent, context: Context, callback: ProxyCallback) => {
+export const helloUser: ProxyHandler = (event: APIGatewayEvent, context: Context, callback: ProxyCallback | undefined) => {
   let body = JSON.parse(event.body || '');
   const response: ProxyResult = {
     statusCode: 200,
@@ -26,12 +26,12 @@ export const helloUser: ProxyHandler = (event: APIGatewayEvent, context: Context
     }),
   };
 
-  callback(null, response);
+  callback!(null, response);
 }
 
-export const provisionUserDataStorage: Handler = (event: CognitoUserPoolEvent, context: Context, callback: Callback) => {
+export const provisionUserDataStorage: Handler = (event: CognitoUserPoolEvent, context: Context, callback: Callback | undefined) => {
   if (event.triggerSource !== 'PostConfirmation_ConfirmSignUp') {
-    callback(Error('Invalid trigger source.'));
+    callback!(Error('Invalid trigger source.'));
     return undefined; 
   }
 
@@ -43,11 +43,11 @@ export const provisionUserDataStorage: Handler = (event: CognitoUserPoolEvent, c
     if (err) {
       // If an error occurred, log it and return it as a response
       console.log(err, err.stack);
-      callback(err, data);
+      callback!(err, data);
     } else {
       // If the folder was created successfully, log and return the response data
       console.log(data);
-      callback(null, data);
+      callback!(null, data);
     }
   });
 }

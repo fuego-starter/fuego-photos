@@ -7,5 +7,4 @@ export class UserPoolEventStub {
     this.version = 1.0
     this.triggerSource =  "PostConfirmation_ConfirmSignUp";
   }
-
 }

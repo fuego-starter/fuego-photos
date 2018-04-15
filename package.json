@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "start:local": "serverless offline start",
-    "build:all": "./node_modules/typescript/bin/tsc src/**/*.ts",
+    "build:all": "./node_modules/typescript/bin/tsc",
     "build:start": "yarn build:all && yarn start:local",
     "test:all": "./node_modules/mocha/bin/mocha -r ts-node/register test/**/*.spec.ts",
     "test": "./node_modules/mocha/bin/mocha -r ts-node/register"
